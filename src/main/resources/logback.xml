@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>offline-recommend.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <logger name="org.apache.http" level="INFO"/>
+    <logger name="org.springframework.web" level="INFO"/>
+    <logger name="org.hibernate" level="ERROR"/>
+    <logger name="org.apache.spark.repl.Main" level="WARN"/>
+    <logger name="org.apache.spark" level="WARN"/>
+    <logger name="org.spark_project.jetty" level="WARN"/>
+    <logger name="org.spark_project.jetty.util.component.AbstractLifeCycle" level="ERROR"/>
+    <logger name="org.apache.spark.repl.SparkIMain$exprTyper" level="INFO"/>
+    <logger name="org.apache.spark.repl.SparkILoop$SparkILoopInterpreter" level="INFO"/>
+    <logger name="org.apache.parquet" level="ERROR"/>
+    <logger name="parquet" level="ERROR"/>
+    <logger name="org.apache.hadoop.hive.metastore.RetryingHMSHandler" level="FATAL"/>
+    <logger name="org.apache.hadoop.hive.ql.exec.FunctionRegistry" level="ERROR"/>
+    <logger name="cn.com.xxx.yyy" level="DEBUG">
+        <appender-ref ref="FILE"/>
+    </logger>
+    <logger name="cn.com.xxx.demo" level="DEBUG">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <root level="INFO">
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>
